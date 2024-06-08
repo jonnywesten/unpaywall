@@ -42,10 +42,10 @@ function extractArchiveLinks(responseBody, originalUrl) {
     return allUrls
         .map(link => link.split('">')[0])
         .filter(link =>
+            link.startsWith('https://archive.is') &&
             !link.includes(originalHost) &&
-            link.includes('https://archive.is') &&
             !link.includes('search/') &&
-            !link.endsWith('.gif') &&
-            !link.endsWith('.png')
+            !link.includes('.gif') &&
+            !link.includes('.png')
         );
 }
