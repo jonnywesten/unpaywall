@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
-        id: "showArchived",
+        id: "unpaywall",
         title: "UnPaywall",
         contexts: ["link"]
     });
@@ -8,7 +8,7 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 chrome.contextMenus.onClicked.addListener(async (info) => {
-    if (info.menuItemId === "showArchived") {
+    if (info.menuItemId === "unpaywall") {
         try {
             const url = new URL(info.linkUrl);
             const strippedUrl = url.origin + url.pathname;
